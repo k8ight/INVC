@@ -1,0 +1,63 @@
+<?php
+session_start();
+$randomid = mt_rand(100000,999999);
+
+
+if (isset($_REQUEST['cuzn'])){
+$cuzn = stripslashes($_REQUEST['cuzn']);
+$cuza = stripslashes($_REQUEST['cuza']);
+$cuzp = stripslashes($_REQUEST['cuzp']);
+$cuzc = stripslashes($_REQUEST['cuzc']);
+$_SESSION['cuzn']=$cuzn;
+$_SESSION['cuza']=$cuza;
+$_SESSION['cuzp']=$cuzp;
+$_SESSION['cuzc']=$cuzc;
+$lxr="database/".$randomid.".".$cuzn.".customer";
+$_SESSION['lxr']=$lxr;
+$_SESSION['idx']=$randomid;
+header("LOCATION: iwriter.php");
+}
+
+
+
+
+
+		if(!empty($_SESSION["cuzn"])){	
+		if (isset($_REQUEST['itm'])){
+			$itm = stripslashes($_REQUEST['itm']);
+$qty = stripslashes($_REQUEST['qty']);
+$up = stripslashes($_REQUEST['up']);
+$tup=$up * $qty ;
+          $file=fopen($_SESSION['lxr'],"a");
+		  $lines = COUNT(FILE($_SESSION['lxr']));
+		  $lno=$lines +1;
+$nnl = '<tr><td class="no">'.$lno.'</td><td colspan="2" class="desc"><h3><b>'.$itm.'</b></h3></td><td class="qty">'.$qty.'</td><td class="total" > <h3>Rs. <span class="totalprice">'.$tup.'.00</span></h3></td></tr>'.PHP_EOL;
+fwrite($file, $nnl);
+fclose($file);
+		}
+		}
+		else{
+			session_destroy();
+		}
+		
+		
+    if (isset($_REQUEST['kill'])){    
+           $kill=urldecode($_REQUEST["kill"]);
+		   if($kill=="yes"){
+			   unlink($_SESSION['lxr']);
+			   session_destroy();
+			   header("LOCATION ./indexx.php");
+		   }
+	}
+ if (isset($_REQUEST['done'])){    
+           $done=urldecode($_REQUEST["done"]);
+		   if($done=="yes"){
+			   $datax='!  <div class="address">'.$_SESSION['cuza'].','.$_SESSION['cuzp'].'</div><div class="email">'.$_SESSION['cuzc'].'</div>';
+			   $file=fopen($_SESSION['lxr'],"a");
+			   fwrite($file, $datax);
+               fclose($file);
+			     session_destroy();
+				 header("LOCATION ./indexx.php");
+		   }
+	}
+?>

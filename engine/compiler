@@ -1,0 +1,9 @@
+<?php
+
+$file = fopen("database/".$customz."","r");
+  $compileo=fread( $file, filesize( "database/".$customz."" ) );
+  $adx=substr($compileo, strpos($compileo, '!') +1);
+  $idata =  strtok($compileo, '!');
+  fclose( $file );
+
+?>

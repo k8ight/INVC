@@ -1,0 +1,51 @@
+input[type='text'],select
+{
+	border-radius: 25px;
+            padding: 10px;
+            width: 400px;
+            height: 30px;
+	
+border: 1px solid #CCC;
+ color: #333; 
+ font-size: 14px; 
+ margin-top: 10px;
+  
+ }
+  select{width: 200px;height: 40px;}
+  select.qty {width: 180px;height: 40px;}
+#a,input[type='submit']
+{
+	padding: 4px 11px 4px; 
+	color: #fff; 
+	background-color: Green;
+	text-shadow: rgba(0,0,0,0.24) 0 1px 0; 
+	font-size: 16px; 
+	box-shadow: rgba(255,255,255,0.24) 0 2px 0 0 inset,#fff 0 1px 0 0; 
+	border: 1px solid green; 
+	border-radius:25px;
+	margin-top: 10px;
+ cursor:pointer;}
+textarea{
+	padding-top:10px;
+	 margin-top: 10px;
+	      resize: none;
+		  	border-radius: 25px;
+            padding: 10px;
+            width: 400px;
+            height:90px;
+			max-height: 90px;
+	        
+border: 1px solid #CCC;
+ color: #333; 
+ font-size: 14px; 
+ }
+  #myiFrame{
+	 top:0px;
+	 left:350px;
+	 position:absolute;
+        height: 600px;
+  width:900px;
+ font: 20px Arial;
+ border: 2px solid black;
+  color:rainbow;
+ }

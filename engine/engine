@@ -1,0 +1,15 @@
+<?php
+/*DO NOT TOUCH  THIS FILE*/
+include("config.php");
+session_start();
+$logoi = base64_encode(file_get_contents($logo)); 
+$authl=base64_encode(file_get_contents($authx));
+$tdte = date("d-m-Y");
+if(isset($_REQUEST["cuz"])){
+        $customz = urldecode($_REQUEST["cuz"]).".customer"; 
+		$dtz=urldecode($_REQUEST["cuz"]);
+		$name = substr($dtz, strpos($dtz, '.') +1);
+		$ivn =  strtok($dtz, '.');
+	   }
+
+?>
